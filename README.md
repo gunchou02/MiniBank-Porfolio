@@ -19,15 +19,15 @@ Cloud resources are currently managed via Terraform. Below are the evidences of 
 *(コスト最適化のためリソースは停止中です。以下は構築時の証跡スクリーンショットです。)*
 
 ### 1. Web Application (On GKE)
-![Web App] <img width="800" height="923" alt="Image" src="https://github.com/user-attachments/assets/882e71ca-2633-4d84-9b29-5ceb69777f3b" />
+[Web App] <img width="800" height="923" alt="Image" src="https://github.com/user-attachments/assets/882e71ca-2633-4d84-9b29-5ceb69777f3b" />
 > Actual running instance on Google Kubernetes Engine with Japanese UI.
 
 ### 2. Infrastructure Provisioning (Terraform)
-![Terraform Apply] <img width="430" height="27" alt="Image" src="https://github.com/user-attachments/assets/b2f1a241-1302-4be8-a7cf-6cee76804ab4" />
+[Terraform Apply] <img width="430" height="27" alt="Image" src="https://github.com/user-attachments/assets/a61691b7-55af-4869-8831-eb5e7d24eec4" />
 > **"Apply complete!"**: All infrastructure components (VPC, GKE) were automatically provisioned using Terraform.
 
 ### 3. Kubernetes Pod Status & Troubleshooting
-![Kubectl Status] <img width="800" height="316" alt="Image" src="https://github.com/user-attachments/assets/35cc188b-a504-4a30-b821-6c3bc36de228" />
+[Kubectl Status] <img width="800" height="316" alt="Image" src="https://github.com/user-attachments/assets/35cc188b-a504-4a30-b821-6c3bc36de228" />
 > **Problem Solving**: Diagnosed `InvalidImageName` error during initial deployment and successfully transitioned pods to `Running` state by fixing the image tag manifest.
 
 
