@@ -19,16 +19,15 @@ Cloud resources are currently managed via Terraform. Below are the evidences of 
 *(コスト最適化のためリソースは停止中です。以下は構築時の証跡スクリーンショットです。)*
 
 ### 1. Web Application (On GKE)
-!<img width="1470" height="923" alt="Image" src="https://github.com/user-attachments/assets/882e71ca-2633-4d84-9b29-5ceb69777f3b" />
-<img width="1470" height="923" alt="Image" src="https://github.com/user-attachments/assets/72de5f6d-40e0-475a-a30d-9d640995526b" />
+![Web App] <img width="800" height="923" alt="Image" src="https://github.com/user-attachments/assets/882e71ca-2633-4d84-9b29-5ceb69777f3b" />
 > Actual running instance on Google Kubernetes Engine with Japanese UI.
 
 ### 2. Infrastructure Provisioning (Terraform)
-![Terraform Apply](file:///Users/bin/Library/Mobile%20Documents/com~apple~CloudDocs/port/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202025-11-27%2015.49.46.png)
+![Terraform Apply] <img width="430" height="27" alt="Image" src="https://github.com/user-attachments/assets/b2f1a241-1302-4be8-a7cf-6cee76804ab4" />
 > **"Apply complete!"**: All infrastructure components (VPC, GKE) were automatically provisioned using Terraform.
 
 ### 3. Kubernetes Pod Status & Troubleshooting
-![Kubectl Status](file:///Users/bin/Library/Mobile%20Documents/com~apple~CloudDocs/port/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202025-11-27%2015.49.14.png)
+![Kubectl Status] <img width="800" height="316" alt="Image" src="https://github.com/user-attachments/assets/35cc188b-a504-4a30-b821-6c3bc36de228" />
 > **Problem Solving**: Diagnosed `InvalidImageName` error during initial deployment and successfully transitioned pods to `Running` state by fixing the image tag manifest.
 
 
