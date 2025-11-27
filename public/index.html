@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Bank</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+          "Hiragino Sans", Meiryo, sans-serif;
+        padding: 50px;
+        text-align: center;
+        background-color: #f4f6f8;
+        color: #333;
+      }
+      .card {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      h1 {
+        margin: 0 0 10px 0;
+        font-size: 28px;
+        color: #1a1a1a;
+      }
+      p.subtitle {
+        color: #666;
+        margin-bottom: 30px;
+        font-size: 14px;
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+      input {
+        padding: 12px;
+        font-size: 16px;
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-sizing: border-box;
+        outline: none;
+        transition: border 0.2s;
+      }
+      input:focus {
+        border-color: #000;
+      }
+
+      button {
+        padding: 14px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        background-color: #000;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        width: 100%;
+        transition: background 0.2s;
+      }
+      button:hover {
+        background-color: #333;
+      }
+
+      #result {
+        margin-top: 25px;
+        font-weight: bold;
+        min-height: 24px;
+        padding: 10px;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      .success {
+        color: #155724;
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+      }
+      .error {
+        color: #721c24;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>🏦 Mini Bank</h1>
+      <p class="subtitle">GCPクラウドネイティブ・インフラ・デモ</p>
+
+      <div class="input-group">
+        <label for="amount">送金金額</label>
+        <input
+          type="number"
+          id="amount"
+          placeholder="金額を入力してください (円)"
+        />
+      </div>
+      <button onclick="sendMoney()">送金する</button>
+
+      <div id="result"></div>
+    </div>
+
+    <script>
+      async function sendMoney() {
+        const amountInput = document.getElementById("amount");
+        const resultBox = document.getElementById("result");
+        const amount = amountInput.value;
+
+        // 초기화
+        resultBox.innerText = "";
+        resultBox.className = "";
+
+        if (!amount) {
+          alert("金額を入力してください。");
+          return;
+        }
+
+        try {
+          const response = await fetch("/transfer", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              user: "TestUser",
+              amount: parseInt(amount),
+            }),
+          });
+          const data = await response.json();
+
+          if (response.ok) {
+            resultBox.innerText = `✅ ${data.message}`;
+            resultBox.className = "success";
+          } else {
+            resultBox.innerText = `⚠️ エラー: ${data}`;
+            resultBox.className = "error";
+          }
+        } catch (error) {
+          console.error(error);
+          resultBox.innerText =
+            "サーバーに接続できません。(Backend Connection Error)";
+          resultBox.className = "error";
+        }
+      }
+    </script>
+  </body>
+</html>
