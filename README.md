@@ -19,7 +19,8 @@ Cloud resources are currently managed via Terraform. Below are the evidences of 
 *(コスト最適化のためリソースは停止中です。以下は構築時の証跡スクリーンショットです。)*
 
 ### 1. Web Application (On GKE)
-![Web App](file:///Users/bin/Library/Mobile%20Documents/com~apple~CloudDocs/port/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202025-11-27%2015.48.28.png,file:///Users/bin/Library/Mobile%20Documents/com~apple~CloudDocs/port/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202025-11-27%2015.48.20.png)
+!<img width="1470" height="923" alt="Image" src="https://github.com/user-attachments/assets/882e71ca-2633-4d84-9b29-5ceb69777f3b" />
+<img width="1470" height="923" alt="Image" src="https://github.com/user-attachments/assets/72de5f6d-40e0-475a-a30d-9d640995526b" />
 > Actual running instance on Google Kubernetes Engine with Japanese UI.
 
 ### 2. Infrastructure Provisioning (Terraform)
