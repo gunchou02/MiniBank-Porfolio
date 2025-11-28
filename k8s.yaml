@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minibank-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: minibank
+  template:
+    metadata:
+      labels:
+        app: minibank
+    spec:
+      containers:
+        - name: minibank
+          # 👇 여기를 본인 프로젝트 ID로 수정하세요! (아까 docker push 했던 주소)
+          image: asia-northeast1-docker.pkg.dev/minibank-project/minibank-repo/minibank-portfolio:v1
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: minibank-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: minibank
+  ports:
+    - port: 80
+      targetPort: 8080
